@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/cars.js"></script>
+    <script src="js/parts.js"></script>
+    <base href="/">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto" ng-controller="mainCtrl as main">
+                <li class="nav-item" ng-class="main.urls.home" ng-click="main.changeActive('home')"><a class="nav-link" href="#!/">Головна</a></li>
+                <li class="nav-item" ng-class="main.urls.course" ng-click="main.changeActive('cars')"><a class="nav-link" href="#!/cars">Автомобілі</a></li>
+                <li class="nav-item" ng-class="main.urls.students" ng-click="main.changeActive('parts')"><a class="nav-link" href="#!/parts">Запчастини</a></li>
+                <li ng-class="main.urls.registration" ng-click="main.changeActive('registration')"><a href="#!/registration" class="nav-link">Реєстрація</a></li>
+                <li ng-class="main.urls.login" ng-click="main.changeActive('login')"><a href="#!/login" class="nav-link">Вхід</a></li>
+            </ul>
+        </div>
+
+    </nav>
+
+
+<ng-view></ng-view>
+
+
+
+</body>
+
+</html>

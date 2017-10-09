@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-12 ml-2">
+            <br>
+            <h2 ng-show="ctrl.currentView=='table'" style="text-align:center;">Список магазинів:</h2>
+            <h2 ng-show="ctrl.currentView=='form'" style="text-align:center;">Додати магазин:</h2>
+            <br>
+            <button class="btn btn-outline-warning btn-sm" ng-click="ctrl.add()" ng-show="ctrl.currentView=='table'">Додати</button>
+            <br>
+        </div>
+        <div class="col-12 ml-2" ng-show="ctrl.currentView=='form'">
+
+            <form>
+                <div class="form-group row">
+                    <label class="col-form-label col-2" for="name">Назва магазину:</label>
+                    <input type="text" class="form-control col-10" ng-model="ctrl.currentShop.name" id="name">
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-2" for="address">Адреса:</label>
+                    <input type="text" class="form-control col-10" ng-model="ctrl.currentShop.address" id="address">
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-2" for="phone">Телефон:</label>
+                    <input type="text" class="form-control col-10" ng-model="ctrl.currentShop.phone" id="phone">
+                </div>
+
+                <button class="btn btn-outline-warning btn-sm" ng-click="ctrl.save()">Зберегти</button>
+                <button class="btn btn-outline-danger btn-sm" ng-click="ctrl.cancel()">Закрити</button>
+
+            </form>
+        </div>
+        <section>
+            <div class="tbl-content col-12" >
+                <table cellpadding="0" cellspacing="0" border="0" class="col-12">
+                    <tbody>
+                        <tr class="text-center">
+                            <th class="text-center">Назва</th>
+                            <th class="text-center">Адреса</th>
+                            <th class="text-center">Телефон</th>
+                            <th class="text-center">Опції</th>
+                        </tr>
+                        <tr ng-repeat="shop in ctrl.shops track by shop._id">
+                            <td>{{shop.name}}</td>
+                            <td>{{shop.address}}</td>
+                            <td>{{shop.phone}}</td>
+                            <td class="text-center">
+                                <button class="btn btn-outline-primary btn-sm" ng-click="ctrl.update(shop)">Редагувати</button>
+                                <button class="btn btn-outline-danger btn-sm" ng-click="ctrl.delete(shop._id)">Видалити</button>
+                                <button class="btn btn-outline-danger btn-sm" ng-click="ctrl.move(shop._id)">Перейти до магазину</button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>

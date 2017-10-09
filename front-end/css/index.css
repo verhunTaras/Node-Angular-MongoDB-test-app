@@ -1,0 +1,90 @@
+body {
+    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+/*    background: red;*/
+    background: linear-gradient(to right, #25c481, #25b7c4);
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    font-family: Arial;
+    }
+h1 {
+    font-size: 30px;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+table {
+/*    width: 100%;*/
+    table-layout: fixed;
+}
+
+
+
+.tbl-content {
+/*    height: 600px;*/
+    overflow-x: hidden;
+    margin-top: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 3px solid black;
+/*    border-top: none;*/
+}
+
+th {
+    padding: 20px 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    text-transform: uppercase;
+    border-right: 1px solid black;
+    border-bottom: 3px solid black;
+}
+
+td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+
+}
+
+th:last-child {
+    border-right: none;
+}
+td:last-child {
+    border-right: none;
+}
+
+
+/* demo styles */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+
+section {
+    margin: 20px;
+}
+
+
+
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 50, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}

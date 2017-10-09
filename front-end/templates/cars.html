@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-12 ml-2">
+            <br>
+            <h2 ng-show="ctrl.currentView=='table'" style="text-align:center;">Список автомобілів:</h2>
+            <h2 ng-show="ctrl.currentView=='form'" style="text-align:center;">Додати автомобіль:</h2>
+            <br>
+            <button class="btn btn-outline-warning btn-sm" ng-click="ctrl.add()" ng-show="ctrl.currentView=='table'">Додати</button>
+            <br>
+        </div>
+        <div class="col-12 ml-2" ng-show="ctrl.currentView=='form'">
+
+            <form>
+                <div class="form-group row">
+                    <label class="col-form-label col-2" for="name">Марка автомобіля:</label>
+                    <input type="text" class="form-control col-10" ng-model="ctrl.currentCar.name" id="name">
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-2" for="model">Модель:</label>
+                    <input type="text" class="form-control col-10" ng-model="ctrl.currentCar.model" id="model">
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-2" for="engine">Двигун:</label>
+                    <input type="text" class="form-control col-10" ng-model="ctrl.currentCar.engine" id="engine">
+                </div>
+                   <div class="form-group row">
+                    <label class="col-form-label col-2" for="year">Роки випуску:</label>
+                    <input type="text" class="form-control col-10" ng-model="ctrl.currentCar.year" id="year">
+                </div>
+
+                <button class="btn btn-outline-warning btn-sm" ng-click="ctrl.save()">Зберегти</button>
+                <button class="btn btn-outline-danger btn-sm" ng-click="ctrl.cancel()">Закрити</button>
+
+            </form>
+        </div>
+        <section>
+            <div class="tbl-content col-12" >
+                <table cellpadding="0" cellspacing="0" border="0" class="col-12">
+                    <tbody>
+                        <tr class="text-center">
+                            <th class="text-center">Марка автомобіля</th>
+                            <th class="text-center">Модель</th>
+                            <th class="text-center">Двигун</th>
+                            <th class="text-center">Рік випуску</th>
+                            <th class="text-center">Опції</th>
+                        </tr>
+                        <tr ng-repeat="car in ctrl.cars track by car._id">
+                            <td>{{car.name}}</td>
+                            <td>{{car.model}}</td>
+                            <td>{{car.engine}}</td>
+                            <td>{{car.year}}</td>
+                            <td class="text-center">
+                                <button class="btn btn-outline-primary btn-sm" ng-click="ctrl.update(car)">Редагувати</button>
+                                <button class="btn btn-outline-danger btn-sm" ng-click="ctrl.delete(car._id)">Видалити</button>
+                                <button class="btn btn-outline-danger btn-sm" ng-click="ctrl.move(car.shopId, car._id)">Перейти до запчастин</button>
+                                
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>

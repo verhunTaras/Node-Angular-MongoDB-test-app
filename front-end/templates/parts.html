@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-12 ml-2">
+            <br>
+            <h2 ng-show="ctrl.currentView=='table'" style="text-align:center;">Список запчастин:</h2>
+            <h2 ng-show="ctrl.currentView=='form'" style="text-align:center;">Додати запчастину:</h2>
+            <br>
+            <button class="btn btn-outline-warning btn-sm" ng-click="ctrl.add()" ng-show="ctrl.currentView=='table'">Додати</button>
+            <br>
+        </div>
+        <div class="col-12 ml-2" ng-show="ctrl.currentView=='form'">
+
+            <form>
+                <div class="form-group row">
+                    <label class="col-form-label col-2" for="name">Назва:</label>
+                    <input type="text" class="form-control col-10" ng-model="ctrl.currentPart.name" id="name">
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-2" for="code">Код:</label>
+                    <input type="text" class="form-control col-10" ng-model="ctrl.currentPart.code" id="code">
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-2" for="additionals">Додатково:</label>
+                    <input type="text" class="form-control col-10" ng-model="ctrl.currentPart.additionals" id="additionals">
+                </div>
+                   <div class="form-group row">
+                    <label class="col-form-label col-2" for="price">Ціна:</label>
+                    <input type="text" class="form-control col-10" ng-model="ctrl.currentPart.price" id="price">
+                </div>
+
+                <button class="btn btn-outline-warning btn-sm" ng-click="ctrl.save()">Зберегти</button>
+                <button class="btn btn-outline-danger btn-sm" ng-click="ctrl.cancel()">Закрити</button>
+
+            </form>
+        </div>
+        <section>
+            <div class="tbl-content col-12" >
+                <table cellpadding="0" cellspacing="0" border="0" class="col-12">
+                    <tbody>
+                        <tr class="text-center">
+                            <th class="text-center">Назва</th>
+                            <th class="text-center">Код</th>
+                            <th class="text-center">Додатково</th>
+                            <th class="text-center">Ціна</th>
+                            <th class="text-center">Опції</th>
+                        </tr>
+                        <tr ng-repeat="part in ctrl.parts track by part._id">
+                            <td>{{part.name}}</td>
+                            <td>{{part.code}}</td>
+                            <td>{{part.additionals}}</td>
+                            <td>{{part.price|UAH}}</td>
+                            <td class="text-center">
+                                <button class="btn btn-outline-primary btn-sm" ng-click="ctrl.update(part)">Редагувати</button>
+                                <button class="btn btn-outline-danger btn-sm" ng-click="ctrl.delete(part._id)">Видалити</button>
+                                <button class="btn btn-outline-danger btn-sm" ng-click="ctrl.order(part._id)">Замовити</button>
+                                
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>
