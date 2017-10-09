@@ -15,6 +15,7 @@ app.controller('carsCtrl', function ($http, $routeParams, $location) {
         vm.currentCar = {};
         vm.currentView = 'table';
     };
+    vm.t=10;
     vm.update = function (car) {
         vm.currentCar = car;
         vm.add();
